@@ -5,11 +5,20 @@
             "aspire": {}
         }
     },
+    "install_aspire_daily": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "aspire": {
+                "useDailyBuilds": true
+            }
+        }
+    },
     "install_aspire_without_cli": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "aspire": {
-                "installCli": false
+                "installCli": false,
+                "useDailyBuilds": true
             }
         }
     }

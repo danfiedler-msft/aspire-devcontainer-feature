@@ -9,6 +9,11 @@
             "type": "boolean",
             "default": true,
             "description": "Whether to install the Aspire CLI."
+        },
+        "useDailyBuilds": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to install the latest daily Aspire CLI build instead of the stable release. Ignored when installCli is false."
         }
     },
     "customizations": {

@@ -16,6 +16,9 @@ jobs:
       - name: "Verify language-neutral feature metadata"
         run: node test/aspire/metadata.test.js
 
+      - name: "Verify CLI installer options"
+        run: bash test/aspire/install.test.sh
+
       - name: "Validate devcontainer-feature.json files"
         uses: devcontainers/action@v1
         with:

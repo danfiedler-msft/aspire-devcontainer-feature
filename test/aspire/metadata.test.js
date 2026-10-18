@@ -1,6 +1,12 @@
 const assert = require("node:assert/strict");
 const feature = require("../../src/aspire/devcontainer-feature.json");
 
+assert.deepEqual(feature.options.useDailyBuilds, {
+    type: "boolean",
+    default: false,
+    description: "Whether to install the latest daily Aspire CLI build instead of the stable release. Ignored when installCli is false."
+}, "Daily Aspire CLI builds must be opt-in.");
+
 assert.deepEqual(feature.customizations.vscode.extensions, [
     "microsoft-aspire.aspire-vscode"
 ], "The shared feature must only install Aspire editor tooling.");
