@@ -1,6 +1,6 @@
 {
     "id": "aspire",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "name": "Aspire",
     "documentationURL": "https://github.com/microsoft/aspire-devcontainer-feature",
     "description": "Installs Aspire. See https://aspire.dev",
@@ -9,15 +9,17 @@
             "type": "boolean",
             "default": true,
             "description": "Whether to install the Aspire CLI."
+        },
+        "useDailyBuilds": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to install the latest daily Aspire CLI build instead of the stable release. Ignored when installCli is false."
         }
     },
     "customizations": {
         "vscode": {
             "extensions": [
-                "microsoft-aspire.aspire-vscode",
-                "ms-azuretools.vscode-bicep",
-                "GitHub.copilot-chat",
-                "GitHub.copilot"
+                "microsoft-aspire.aspire-vscode"
             ],
             "settings": {
                 "remote.autoForwardPorts": true,

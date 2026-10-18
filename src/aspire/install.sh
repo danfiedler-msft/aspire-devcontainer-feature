@@ -11,6 +11,7 @@ set -e
 set -o pipefail
 
 INSTALL_CLI="${INSTALLCLI:-"true"}"
+USE_DAILY_BUILDS="${USEDAILYBUILDS:-"false"}"
 
 echo "Activating feature 'Aspire'"
 
@@ -35,7 +36,12 @@ if [[ "${INSTALL_CLI,,}" == "true" ]]; then
         apt-get install -y --no-install-recommends ${_PKGS}
     fi
 
-    curl -sSL https://aspire.dev/install.sh | bash
+    INSTALL_ARGS=()
+    if [[ "${USE_DAILY_BUILDS,,}" == "true" ]]; then
+        INSTALL_ARGS+=(--quality dev)
+    fi
+
+    curl -fsSL https://aspire.dev/install.sh | bash -s -- "${INSTALL_ARGS[@]}"
 
     # The installer puts the binary at $HOME/.aspire/bin/aspire and only updates shell
     # profile files (e.g. ~/.bashrc). Copy the binary to /usr/local/bin so that aspire
