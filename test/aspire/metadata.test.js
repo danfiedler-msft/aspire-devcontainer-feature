@@ -2,9 +2,8 @@ const assert = require("node:assert/strict");
 const feature = require("../../src/aspire/devcontainer-feature.json");
 
 assert.deepEqual(feature.customizations.vscode.extensions, [
-    "microsoft-aspire.aspire-vscode",
-    "ms-azuretools.vscode-bicep"
-], "The shared feature must only install Aspire and Bicep editor tooling.");
+    "microsoft-aspire.aspire-vscode"
+], "The shared feature must only install Aspire editor tooling.");
 
 assert.deepEqual(feature.customizations.vscode.settings, {
     "remote.autoForwardPorts": true,

@@ -1,6 +1,6 @@
 {
     "id": "aspire",
-    "version": "3.0.1",
+    "version": "3.1.0",
     "name": "Aspire",
     "documentationURL": "https://github.com/microsoft/aspire-devcontainer-feature",
     "description": "Installs Aspire. See https://aspire.dev",
@@ -14,8 +14,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "microsoft-aspire.aspire-vscode",
-                "ms-azuretools.vscode-bicep"
+                "microsoft-aspire.aspire-vscode"
             ],
             "settings": {
                 "remote.autoForwardPorts": true,
