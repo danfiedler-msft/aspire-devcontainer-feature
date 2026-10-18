@@ -3,10 +3,8 @@ const feature = require("../../src/aspire/devcontainer-feature.json");
 
 assert.deepEqual(feature.customizations.vscode.extensions, [
     "microsoft-aspire.aspire-vscode",
-    "ms-azuretools.vscode-bicep",
-    "GitHub.copilot-chat",
-    "GitHub.copilot"
-], "The shared feature must not inject language-specific editor tooling.");
+    "ms-azuretools.vscode-bicep"
+], "The shared feature must only install Aspire and Bicep editor tooling.");
 
 assert.deepEqual(feature.customizations.vscode.settings, {
     "remote.autoForwardPorts": true,
