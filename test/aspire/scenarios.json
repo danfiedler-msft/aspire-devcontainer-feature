@@ -1,10 +1,4 @@
 {
-    "install_aspire": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-        "features": {
-            "aspire": {}
-        }
-    },
     "install_aspire_daily": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
