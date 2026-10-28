@@ -1,0 +1,28 @@
+const assert = require("node:assert/strict");
+const feature = require("../../src/aspire/devcontainer-feature.json");
+
+assert.deepEqual(feature.options.useDailyBuilds, {
+    type: "boolean",
+    default: false,
+    description: "Whether to install the latest daily Aspire CLI build instead of the stable release. Ignored when installCli is false."
+}, "Daily Aspire CLI builds must be opt-in.");
+
+assert.deepEqual(feature.customizations.vscode.extensions, [
+    "microsoft-aspire.aspire-vscode"
+], "The shared feature must only install Aspire editor tooling.");
+
+assert.deepEqual(feature.customizations.vscode.settings, {
+    "remote.autoForwardPorts": true,
+    "remote.autoForwardPortsSource": "hybrid",
+    "remote.otherPortsAttributes": {
+        "onAutoForward": "ignore"
+    }
+}, "The shared port-forwarding settings must be preserved.");
+
+assert.equal(
+    Object.keys(feature.dependsOn ?? {}).some(id => /(^|\/)dotnet(:|$)/.test(id)),
+    false,
+    "The feature must not require the separate .NET SDK feature."
+);
+
+console.log("Language-neutral feature metadata checks passed.");
